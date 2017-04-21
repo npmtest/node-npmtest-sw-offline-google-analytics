@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-sw-offline-google-analytics/node_modules/sw-offline-google-analytics/build/offline-google-analytics-import.min.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-sw-offline-google-analytics">npmtest-sw-offline-google-analytics (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-sw-offline-google-analytics/node_modules/sw-offline-google-analytics/build/offline-google-analytics-import.min.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">11.17% <small>(22 / 197)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">2.03% <small>(3 / 148)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">8.33% <small>(7 / 84)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">100% <small>(1 / 1)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-sw-offline-google-analytics/node_modules/sw-offline-google-analytics/build/</a> &#187; offline-google-analytics-import.min.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+ Copyright 2016 Google Inc. All Rights Reserved.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+&nbsp;
+     http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+(function(a,b){'object'==typeof exports&amp;&amp;'undefined'!=typeof module?module.exports=b():<span class="branch-1 cbranch-no" title="branch not covered" >'function'==typeof define&amp;&amp;define.amd?define(b):(a.goog=a.goog||{},a.goog.offlineGoogleAnalytics=b())}</span>)(this,function(){'use strict';var a={CACHE_NAME:'offline-google-analytics',IDB:{NAME:'offline-google-analytics',STORE:'urls',VERSION:1},MAX_ANALYTICS_BATCH_SIZE:20,STOP_RETRYING_AFTER:172800000,URL:{ANALYTICS_JS_PATH:'/analytics.js',COLLECT_PATH:'/collect',HOST:'www.google-analytics.com'}},b=function createCommonjsModule(q,r){return r={exports:{}},q(r,r.exports),r.exports}(function(q){'use strict';(function(){<span class="fstat-no" title="function not covered" >function toArray(s){<span class="cstat-no" title="statement not covered" ></span>return Array.prototype.slice.call(s)}<span class="fstat-no" title="function not covered" ></span>function promisifyRequest(s){<span class="cstat-no" title="statement not covered" ></span>return new Promise(<span class="fstat-no" title="function not covered" >function(t,u){<span class="cstat-no" title="statement not covered" ></span>s.onsuccess=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>t(s.result)}</span>,s.onerror=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>u(s.error)}</span>}</span>)}<span class="fstat-no" title="function not covered" ></span>function promisifyRequestCall(s,t,u){<span class="cstat-no" title="statement not covered" ></span>var v,w=new Promise(<span class="fstat-no" title="function not covered" >function(x,y){<span class="cstat-no" title="statement not covered" ></span>v=s[t].apply(s,u),promisifyRequest(v).then(x,y)}</span>);<span class="cstat-no" title="statement not covered" >r</span>eturn w.request=v,w}<span class="fstat-no" title="function not covered" ></span>function promisifyCursorRequestCall(s,t,u){<span class="cstat-no" title="statement not covered" ></span>var v=promisifyRequestCall(s,t,u);<span class="cstat-no" title="statement not covered" >r</span>eturn v.then(<span class="fstat-no" title="function not covered" >function(w){<span class="cstat-no" title="statement not covered" ></span>return w?new Cursor(w,v.request):void 0}</span>)}</span>function proxyProperties(s,t,u){u.forEach(function(v){Object.defineProperty(s.prototype,v,{get:<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return this[t][v]}</span>,set:<span class="fstat-no" title="function not covered" >function(w){<span class="cstat-no" title="statement not covered" ></span>this[t][v]=w}</span>})})}<span class="fstat-no" title="function not covered" >function proxyRequestMethods(s,t,u,v){<span class="cstat-no" title="statement not covered" ></span>v.forEach(<span class="fstat-no" title="function not covered" >function(w){<span class="cstat-no" title="statement not covered" ></span>w in u.prototype&amp;&amp;(s.prototype[w]=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return promisifyRequestCall(this[t],w,arguments)}</span>)}</span>)}<span class="fstat-no" title="function not covered" ></span>function proxyMethods(s,t,u,v){<span class="cstat-no" title="statement not covered" ></span>v.forEach(<span class="fstat-no" title="function not covered" >function(w){<span class="cstat-no" title="statement not covered" ></span>w in u.prototype&amp;&amp;(s.prototype[w]=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return this[t][w].apply(this[t],arguments)}</span>)}</span>)}<span class="fstat-no" title="function not covered" ></span>function proxyCursorRequestMethods(s,t,u,v){<span class="cstat-no" title="statement not covered" ></span>v.forEach(<span class="fstat-no" title="function not covered" >function(w){<span class="cstat-no" title="statement not covered" ></span>w in u.prototype&amp;&amp;(s.prototype[w]=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return promisifyCursorRequestCall(this[t],w,arguments)}</span>)}</span>)}<span class="fstat-no" title="function not covered" ></span>function Index(s){<span class="cstat-no" title="statement not covered" ></span>this._index=s}<span class="fstat-no" title="function not covered" ></span>function Cursor(s,t){<span class="cstat-no" title="statement not covered" ></span>this._cursor=s,this._request=t}<span class="fstat-no" title="function not covered" ></span>function ObjectStore(s){<span class="cstat-no" title="statement not covered" ></span>this._store=s}<span class="fstat-no" title="function not covered" ></span>function Transaction(s){<span class="cstat-no" title="statement not covered" ></span>this._tx=s,this.complete=new Promise(<span class="fstat-no" title="function not covered" >function(t,u){<span class="cstat-no" title="statement not covered" ></span>s.oncomplete=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>t()}</span>,s.onerror=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>u(s.error)}</span>,s.onabort=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>u(s.error)}</span>}</span>)}<span class="fstat-no" title="function not covered" ></span>function UpgradeDB(s,t,u){<span class="cstat-no" title="statement not covered" ></span>this._db=s,this.oldVersion=t,this.transaction=new Transaction(u)}<span class="fstat-no" title="function not covered" ></span>function DB(s){<span class="cstat-no" title="statement not covered" ></span>this._db=s}</span>proxyProperties(Index,'_index',['name','keyPath','multiEntry','unique']),proxyRequestMethods(Index,'_index',IDBIndex,['get','getKey','getAll','getAllKeys','count']),proxyCursorRequestMethods(Index,'_index',IDBIndex,['openCursor','openKeyCursor']),proxyProperties(Cursor,'_cursor',['direction','key','primaryKey','value']),proxyRequestMethods(Cursor,'_cursor',IDBCursor,['update','delete']),['advance','continue','continuePrimaryKey'].forEach(<span class="fstat-no" title="function not covered" >function(s){<span class="cstat-no" title="statement not covered" ></span>s in IDBCursor.prototype&amp;&amp;(Cursor.prototype[s]=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>var t=this,u=arguments;<span class="cstat-no" title="statement not covered" >r</span>eturn Promise.resolve().then(<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return t._cursor[s].apply(t._cursor,u),promisifyRequest(t._request).then(<span class="fstat-no" title="function not covered" >function(v){<span class="cstat-no" title="statement not covered" ></span>return v?new Cursor(v,t._request):void 0}</span>)}</span>)}</span>)}</span>),ObjectStore.prototype.createIndex=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return new Index(this._store.createIndex.apply(this._store,arguments))}</span>,ObjectStore.prototype.index=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return new Index(this._store.index.apply(this._store,arguments))}</span>,proxyProperties(ObjectStore,'_store',['name','keyPath','indexNames','autoIncrement']),proxyRequestMethods(ObjectStore,'_store',IDBObjectStore,['put','add','delete','clear','get','getAll','getKey','getAllKeys','count']),proxyCursorRequestMethods(ObjectStore,'_store',IDBObjectStore,['openCursor','openKeyCursor']),proxyMethods(ObjectStore,'_store',IDBObjectStore,['deleteIndex']),Transaction.prototype.objectStore=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return new ObjectStore(this._tx.objectStore.apply(this._tx,arguments))}</span>,proxyProperties(Transaction,'_tx',['objectStoreNames','mode']),proxyMethods(Transaction,'_tx',IDBTransaction,['abort']),UpgradeDB.prototype.createObjectStore=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return new ObjectStore(this._db.createObjectStore.apply(this._db,arguments))}</span>,proxyProperties(UpgradeDB,'_db',['name','version','objectStoreNames']),proxyMethods(UpgradeDB,'_db',IDBDatabase,['deleteObjectStore','close']),DB.prototype.transaction=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>return new Transaction(this._db.transaction.apply(this._db,arguments))}</span>,proxyProperties(DB,'_db',['name','version','objectStoreNames']),proxyMethods(DB,'_db',IDBDatabase,['close']),['openCursor','openKeyCursor'].forEach(<span class="fstat-no" title="function not covered" >function(s){<span class="cstat-no" title="statement not covered" ></span>[ObjectStore,Index].forEach(<span class="fstat-no" title="function not covered" >function(t){<span class="cstat-no" title="statement not covered" ></span>t.prototype[s.replace('open','iterate')]=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>var u=toArray(arguments),v=u[u.length-1],w=this._store||this._index,x=w[s].apply(w,u.slice(0,-1));<span class="cstat-no" title="statement not covered" >x</span>.onsuccess=<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>v(x.result)}</span>}</span>}</span>)}</span>),[Index,ObjectStore].forEach(<span class="fstat-no" title="function not covered" >function(s){<span class="cstat-no" title="statement not covered" ></span>s.prototype.getAll||(s.prototype.getAll=<span class="fstat-no" title="function not covered" >function(t,u){<span class="cstat-no" title="statement not covered" ></span>var v=this,w=[];<span class="cstat-no" title="statement not covered" >r</span>eturn new Promise(<span class="fstat-no" title="function not covered" >function(x){<span class="cstat-no" title="statement not covered" ></span>v.iterateCursor(t,<span class="fstat-no" title="function not covered" >function(y){<span class="cstat-no" title="statement not covered" ></span>return y?(w.push(y.value),void 0!==u&amp;&amp;w.length==u?void x(w):void y.continue()):void x(w)}</span>)}</span>)}</span>)}</span>);<span class="cstat-no" title="statement not covered" >q.exports={open:<span class="fstat-no" title="function not covered" >function(s,t,u){<span class="cstat-no" title="statement not covered" ></span>var v=promisifyRequestCall(indexedDB,'open',[s,t]),w=v.request;<span class="cstat-no" title="statement not covered" >r</span>eturn w.onupgradeneeded=<span class="fstat-no" title="function not covered" >function(x){<span class="cstat-no" title="statement not covered" ></span>u&amp;&amp;u(new UpgradeDB(w.result,x.oldVersion,w.transaction))}</span>,v.then(<span class="fstat-no" title="function not covered" >function(x){<span class="cstat-no" title="statement not covered" ></span>return new DB(x)}</span>)}</span>,delete:<span class="fstat-no" title="function not covered" >function(s){<span class="cstat-no" title="statement not covered" ></span>return promisifyRequestCall(indexedDB,'deleteDatabase',[s])}</span>}}</span>)()});class IDBHelper{constructor<span class="fstat-no" title="function not covered" >(q,r,s){<span class="cstat-no" title="statement not covered" ></span>if(q==void 0||r==void 0||s==void 0)<span class="cstat-no" title="statement not covered" >throw Error('name, version, storeName must be passed to the constructor.');<span class="cstat-no" title="statement not covered" >t</span></span>his._name=q,this._version=r,this._storeName=s}</span>_getDb<span class="fstat-no" title="function not covered" >(){<span class="cstat-no" title="statement not covered" ></span>return this._dbPromise?this._dbPromise:(this._dbPromise=b.open(this._name,this._version,(q)=&gt;{<span class="cstat-no" title="statement not covered" >q.createObjectStore(this._storeName)}</span>).then((q)=&gt;{<span class="cstat-no" title="statement not covered" >return q}</span>),this._dbPromise)}</span>close<span class="fstat-no" title="function not covered" >(){<span class="cstat-no" title="statement not covered" ></span>return this._dbPromise?this._dbPromise.then((q)=&gt;{<span class="cstat-no" title="statement not covered" >q.close(),this._dbPromise=null}</span>):void 0}</span>put<span class="fstat-no" title="function not covered" >(q,r){<span class="cstat-no" title="statement not covered" ></span>return this._getDb().then((s)=&gt;{<span class="cstat-no" title="statement not covered" >const t=s.transaction(this._storeName,'readwrite'),u=t.objectStore(this._storeName);<span class="cstat-no" title="statement not covered" >r</span>eturn u.put(r,q),t.complete}</span>)}</span>delete<span class="fstat-no" title="function not covered" >(q){<span class="cstat-no" title="statement not covered" ></span>return this._getDb().then((r)=&gt;{<span class="cstat-no" title="statement not covered" >const s=r.transaction(this._storeName,'readwrite'),t=s.objectStore(this._storeName);<span class="cstat-no" title="statement not covered" >r</span>eturn t.delete(q),s.complete}</span>)}</span>get<span class="fstat-no" title="function not covered" >(q){<span class="cstat-no" title="statement not covered" ></span>return this._getDb().then((r)=&gt;{<span class="cstat-no" title="statement not covered" >return r.transaction(this._storeName).objectStore(this._storeName).get(q)}</span>)}</span>getAllValues<span class="fstat-no" title="function not covered" >(){<span class="cstat-no" title="statement not covered" ></span>return this._getDb().then((q)=&gt;{<span class="cstat-no" title="statement not covered" >return q.transaction(this._storeName).objectStore(this._storeName).getAll()}</span>)}</span>getAllKeys<span class="fstat-no" title="function not covered" >(){<span class="cstat-no" title="statement not covered" ></span>return this._getDb().then((q)=&gt;{<span class="cstat-no" title="statement not covered" >return q.transaction(this._storeName).objectStore(this._storeName).getAllKeys()}</span>)}</span>}<span class="cstat-no" title="statement not covered" >const c=new IDBHelper(a.IDB.NAME,a.IDB.VERSION,a.IDB.STORE);<span class="cstat-no" title="statement not covered" >v</span>ar d=(q,r)=&gt;{<span class="cstat-no" title="statement not covered" >const s=new URL(q.url);<span class="cstat-no" title="statement not covered" >r</span>eturn q.text().then((t)=&gt;{<span class="cstat-no" title="statement not covered" >return t&amp;&amp;(s.search=t),c.put(s.toString(),r||Date.now())}</span>)}</span>;c</span>lass LogGroup{constructor<span class="fstat-no" title="function not covered" >({title:q,isPrimary:r}={}){<span class="cstat-no" title="statement not covered" ></span>this._isPrimary=r||!1,this._groupTitle=q||'',this._logs=[],this._childGroups=[],this._isFirefox=!1,/Firefox\/\d*\.\d*/.exec(navigator.userAgent)&amp;&amp;(this._isFirefox=!0),this._isEdge=!1,/Edge\/\d*\.\d*/.exec(navigator.userAgent)&amp;&amp;(this._isEdge=!0)}</span>addLog<span class="fstat-no" title="function not covered" >(q){<span class="cstat-no" title="statement not covered" ></span>this._logs.push(q)}</span>addChildGroup<span class="fstat-no" title="function not covered" >(q){<span class="cstat-no" title="statement not covered" ></span>0===q._logs.length||this._childGroups.push(q)}</span>print<span class="fstat-no" title="function not covered" >(){<span class="cstat-no" title="statement not covered" ></span>return this._isEdge?this._printEdgeFriendly():void(this._openGroup(),this._logs.forEach((q)=&gt;{<span class="cstat-no" title="statement not covered" >this._printLogDetails(q)}</span>),this._childGroups.forEach((q)=&gt;{<span class="cstat-no" title="statement not covered" >q.print()}</span>),this._closeGroup())}</span>_printEdgeFriendly<span class="fstat-no" title="function not covered" >(){<span class="cstat-no" title="statement not covered" ></span>this._logs.forEach((q)=&gt;{<span class="cstat-no" title="statement not covered" >let s=q.message;<span class="cstat-no" title="statement not covered" >'</span>string'==typeof s&amp;&amp;(s=s.replace(/%c/g,''));<span class="cstat-no" title="statement not covered" >c</span>onst t=[s];<span class="cstat-no" title="statement not covered" >q</span>.error&amp;&amp;t.push(q.error),q.args&amp;&amp;t.push(q.args);<span class="cstat-no" title="statement not covered" >c</span>onst u=q.logFunc||console.log;<span class="cstat-no" title="statement not covered" >u</span>(...t)}</span>),this._childGroups.forEach((q)=&gt;{<span class="cstat-no" title="statement not covered" >q.print()}</span>)}</span>_printLogDetails<span class="fstat-no" title="function not covered" >(q){<span class="cstat-no" title="statement not covered" ></span>const r=q.logFunc?q.logFunc:console.log;<span class="cstat-no" title="statement not covered" >l</span>et s=q.message,t=[s];<span class="cstat-no" title="statement not covered" >q</span>.colors&amp;&amp;!this._isEdge&amp;&amp;(t=t.concat(q.colors)),q.args&amp;&amp;(t=t.concat(q.args)),r(...t)}</span>_openGroup<span class="fstat-no" title="function not covered" >(){<span class="cstat-no" title="statement not covered" ></span>if(this._isPrimary){<span class="cstat-no" title="statement not covered" >if(0===this._childGroups.length)<span class="cstat-no" title="statement not covered" >return;<span class="cstat-no" title="statement not covered" >c</span></span>onst q=this._logs.shift();<span class="cstat-no" title="statement not covered" >i</span>f(this._isFirefox)<span class="cstat-no" title="statement not covered" >return void this._printLogDetails(q);<span class="cstat-no" title="statement not covered" >q</span></span>.logFunc=console.group,this._printLogDetails(q)}</span>else <span class="cstat-no" title="statement not covered" >console.groupCollapsed(this._groupTitle)}</span></span>_closeGroup<span class="fstat-no" title="function not covered" >(){<span class="cstat-no" title="statement not covered" ></span>this._isPrimary&amp;&amp;0===this._childGroups.length||console.groupEnd()}</span>}<span class="cstat-no" title="statement not covered" >self.goog=self.goog||{},self.goog.LOG_LEVEL=self.goog.LOG_LEVEL||{none:-1,verbose:0,debug:1,warn:2,error:3};<span class="cstat-no" title="statement not covered" >c</span>onst e=`#bdc3c7`,f=`#7f8c8d`,g=`#2ecc71`,h=`#f1c40f`,i=`#e74c3c`,j=`#3498db`;<span class="cstat-no" title="statement not covered" >v</span>ar k=new class LogHelper{constructor<span class="fstat-no" title="function not covered" >(){<span class="cstat-no" title="statement not covered" ></span>this._defaultLogLevel='localhost'===location.hostname?self.goog.LOG_LEVEL.debug:self.goog.LOG_LEVEL.none}</span>log<span class="fstat-no" title="function not covered" >(q){<span class="cstat-no" title="statement not covered" ></span>this._printMessage(self.goog.LOG_LEVEL.verbose,q)}</span>debug<span class="fstat-no" title="function not covered" >(q){<span class="cstat-no" title="statement not covered" ></span>this._printMessage(self.goog.LOG_LEVEL.debug,q)}</span>warn<span class="fstat-no" title="function not covered" >(q){<span class="cstat-no" title="statement not covered" ></span>this._printMessage(self.goog.LOG_LEVEL.warn,q)}</span>error<span class="fstat-no" title="function not covered" >(q){<span class="cstat-no" title="statement not covered" ></span>this._printMessage(self.goog.LOG_LEVEL.error,q)}</span>_printMessage<span class="fstat-no" title="function not covered" >(q,r){<span class="cstat-no" title="statement not covered" ></span>if(this._shouldLogMessage(q,r)){<span class="cstat-no" title="statement not covered" >const s=this._getAllLogGroups(q,r);<span class="cstat-no" title="statement not covered" >s</span>.print()}</span>}</span>_getAllLogGroups<span class="fstat-no" title="function not covered" >(q,r){<span class="cstat-no" title="statement not covered" ></span>const s=new LogGroup({isPrimary:!0,title:'sw-helpers log.'}),t=this._getPrimaryMessageDetails(q,r);<span class="cstat-no" title="statement not covered" >i</span>f(s.addLog(t),r.error){<span class="cstat-no" title="statement not covered" >const v={message:r.error,logFunc:console.error};<span class="cstat-no" title="statement not covered" >s</span>.addLog(v)}<span class="cstat-no" title="statement not covered" ></span>c</span>onst u=new LogGroup({title:'Extra Information.'});<span class="cstat-no" title="statement not covered" >i</span>f(r.that&amp;&amp;r.that.constructor&amp;&amp;r.that.constructor.name){<span class="cstat-no" title="statement not covered" >const v=r.that.constructor.name;<span class="cstat-no" title="statement not covered" >u</span>.addLog(this._getKeyValueDetails('class',v))}<span class="cstat-no" title="statement not covered" ></span>r</span>eturn r.data&amp;&amp;('object'!=typeof r.data||r.data instanceof Array?u.addLog(this._getKeyValueDetails('additionalData',r.data)):Object.keys(r.data).forEach((v)=&gt;{<span class="cstat-no" title="statement not covered" >u.addLog(this._getKeyValueDetails(v,r.data[v]))}</span>)),s.addChildGroup(u),s}</span>_getKeyValueDetails<span class="fstat-no" title="function not covered" >(q,r){<span class="cstat-no" title="statement not covered" ></span>return{message:`%c${q}: `,colors:[`color: ${j}`],args:r}}</span>_getPrimaryMessageDetails<span class="fstat-no" title="function not covered" >(q,r){<span class="cstat-no" title="statement not covered" ></span>let s,t;<span class="cstat-no" title="statement not covered" >q</span>===self.goog.LOG_LEVEL.verbose?(s='Info',t=e):q===self.goog.LOG_LEVEL.debug?(s='Debug',t=g):q===self.goog.LOG_LEVEL.warn?(s='Warn',t=h):q===self.goog.LOG_LEVEL.error?(s='Error',t=i):void 0;<span class="cstat-no" title="statement not covered" >l</span>et u=`%c🔧 %c[${s}]`;<span class="cstat-no" title="statement not covered" >c</span>onst v=[`color: ${e}`,`color: ${t}`];<span class="cstat-no" title="statement not covered" >l</span>et w;<span class="cstat-no" title="statement not covered" >r</span>eturn'string'==typeof r?w=r:r.message&amp;&amp;(w=r.message),w&amp;&amp;(u+=`%c ${w}`,v.push(`color: ${f}; font-weight: normal`)),{message:u,colors:v}}</span>_shouldLogMessage<span class="fstat-no" title="function not covered" >(q,r){<span class="cstat-no" title="statement not covered" ></span>if(!r)<span class="cstat-no" title="statement not covered" >return!1;<span class="cstat-no" title="statement not covered" >l</span></span>et s=this._defaultLogLevel;<span class="cstat-no" title="statement not covered" >r</span>eturn self&amp;&amp;self.goog&amp;&amp;'number'==typeof self.goog.logLevel&amp;&amp;(s=self.goog.logLevel),s===self.goog.LOG_LEVEL.none||q&lt;s?!1:!0}</span>};<span class="cstat-no" title="statement not covered" >c</span>onst l=new IDBHelper(a.IDB.NAME,a.IDB.VERSION,a.IDB.STORE);<span class="cstat-no" title="statement not covered" >v</span>ar m=(q)=&gt;{<span class="cstat-no" title="statement not covered" >return q=q||{},l.getAllKeys().then((r)=&gt;{<span class="cstat-no" title="statement not covered" >return Promise.all(r.map((s)=&gt;{<span class="cstat-no" title="statement not covered" >return l.get(s).then((t)=&gt;{<span class="cstat-no" title="statement not covered" >const u=Date.now()-t,v=new URL(s);<span class="cstat-no" title="statement not covered" >i</span>f(!(u&gt;a.STOP_RETRYING_AFTER)&amp;&amp;'searchParams'in v){<span class="cstat-no" title="statement not covered" >let w=q.parameterOverrides||{};<span class="cstat-no" title="statement not covered" >w</span>.qt=u,Object.keys(w).sort().forEach((y)=&gt;{<span class="cstat-no" title="statement not covered" >v.searchParams.set(y,w[y])}</span>);<span class="cstat-no" title="statement not covered" >l</span>et x=q.hitFilter;<span class="cstat-no" title="statement not covered" >i</span>f('function'==typeof x)<span class="cstat-no" title="statement not covered" >try{<span class="cstat-no" title="statement not covered" >x(v.searchParams)}</span>catch(y){<span class="cstat-no" title="statement not covered" >return}<span class="cstat-no" title="statement not covered" ></span>r</span></span>eturn fetch(v.toString())}</span>}</span>).then(()=&gt;<span class="cstat-no" title="statement not covered" >l.delete(s))</span>}</span>))}</span>)}</span>;<span class="cstat-no" title="statement not covered" >r</span>eturn{initialize:(q)=&gt;{<span class="cstat-no" title="statement not covered" >q=q||{};<span class="cstat-no" title="statement not covered" >l</span>et r=!1;<span class="cstat-no" title="statement not covered" >s</span>elf.addEventListener('fetch',(s)=&gt;{<span class="cstat-no" title="statement not covered" >const t=new URL(s.request.url),u=s.request;<span class="cstat-no" title="statement not covered" >i</span>f(t.hostname===a.URL.HOST)<span class="cstat-no" title="statement not covered" >if(t.pathname===a.URL.COLLECT_PATH){<span class="cstat-no" title="statement not covered" >const v=u.clone();<span class="cstat-no" title="statement not covered" >s</span>.respondWith(fetch(u).then((w)=&gt;{<span class="cstat-no" title="statement not covered" >return r&amp;&amp;m(q),r=!1,w}</span>,()=&gt;{<span class="cstat-no" title="statement not covered" >return k.log('Enqueuing failed request...'),r=!0,d(v).then(()=&gt;<span class="cstat-no" title="statement not covered" >Response.error())</span>}</span>))}</span>else <span class="cstat-no" title="statement not covered" >t.pathname===a.URL.ANALYTICS_JS_PATH&amp;&amp;s.respondWith(caches.open(a.CACHE_NAME).then((v)=&gt;{<span class="cstat-no" title="statement not covered" >return fetch(u).then((w)=&gt;{<span class="cstat-no" title="statement not covered" >return v.put(u,w.clone()).then(()=&gt;<span class="cstat-no" title="statement not covered" >w)</span>}</span>).catch((w)=&gt;{<span class="cstat-no" title="statement not covered" >return k.error(w),v.match(u)}</span>)}</span>))}</span></span></span>),m(q)}</span>}}</span>);
+//# sourceMappingURL=offline-google-analytics-import.min.js.map
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Fri Apr 21 2017 17:07:33 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>
